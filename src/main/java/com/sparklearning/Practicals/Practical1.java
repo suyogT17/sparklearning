@@ -10,6 +10,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Practical1 {
 
@@ -37,6 +38,11 @@ public class Practical1 {
                 //.foreach(value -> System.out.println(value));
                  .take(10)
                  .forEach(System.out::println);
+
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+
+        sc.close();
     }
 
 }
