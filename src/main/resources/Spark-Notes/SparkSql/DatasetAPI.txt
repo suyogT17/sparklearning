@@ -1,0 +1,9 @@
+DatasetAPI:
+    Used to worked with structured data.
+    we can read data from json,csv,textfile etc.
+
+
+    show(): it shows first 20 lines of the dataset
+    count(): returns the number of rows in the dataset. (returns long)
+
+DataFrame = Dataset for rows
