@@ -2,8 +2,27 @@ DatasetAPI:
     Used to worked with structured data.
     we can read data from json,csv,textfile etc.
 
-
     show(): it shows first 20 lines of the dataset
     count(): returns the number of rows in the dataset. (returns long)
 
 DataFrame = Dataset for rows
+
+Performance;
+    performance of spark SQL version may be slow because after shuffling if less no of keys available in the end result and
+    because of that most of the partitions are not doing any work as data is not written into it.
+            sparkSession.conf().set("spark.sql.shuffle.partitions","10");
+    by above line we can add to configuration number of partition to work with after shuffle performed
+
+
+Spark SQL version vs Java API version grouping:
+    while performing grouping operation spark sql version is slower than java API version
+    this is because the grouping strategy used in both versions are different
+        two grouping strategies:
+            1. sortAggregation: (used by sql version by if the columns not involve in the grouping are IMMUTABLE)
+                its performs operation without using any extra memory but the complexity is O(n*log(n))
+                sorts based on the grouping column and then aggregated the data
+
+            2. hashAggregation :
+                used the extra space but the complexity is O(n)
+                it creates the key, value( hashmap like data structure implemented using native memory) pair where key is the combination of grouping columns and does aggregation
+                only possible if the data for the value is MUTABLE
