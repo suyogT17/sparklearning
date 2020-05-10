@@ -26,3 +26,8 @@ Spark SQL version vs Java API version grouping:
                 used the extra space but the complexity is O(n)
                 it creates the key, value( hashmap like data structure implemented using native memory) pair where key is the combination of grouping columns and does aggregation
                 only possible if the data for the value is MUTABLE
+
+Catalyst optimizer:
+    it improves the performance of the spark execution and it will not execute the unwanted transformation (i.e it will not add
+    those into DAG)
+    Spark uses lazy execution.(execution take place when the action is performed)

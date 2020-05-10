@@ -1,0 +1,29 @@
+
+r2 should be high
+RMSE should be low
+
+Data Preparation:
+    1. Acquisition
+    2. Cleaning
+        -remove missing(null) values
+        -remove errors?
+    3. Feature Selection
+    4. Data Formatting
+
+Feature Selecion:
+    1. Eliminate Dependent Variables
+    2. Does each variable have sufficiently wide range of values?
+    3. Are any variables good potential predictors?
+    4. Remove duplicate variable
+
+    Correlation:(Strong correlation with label are useful)
+        0 No correlation
+        1 Strongly Correlated
+       -1 String Correlated
+
+    Eliminating Duplicate data:
+        Eliminate two features having Strong correlation
+
+Transformers and Estimators:(extends Abstract class PipelineStages)
+    Transformer = Object on which we call transform method. returns Dataset
+    Estimators = Object on which we call fit method. returns Transformers

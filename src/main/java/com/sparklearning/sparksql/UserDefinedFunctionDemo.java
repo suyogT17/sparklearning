@@ -24,7 +24,7 @@ public class UserDefinedFunctionDemo {
         //this line is not reading the dataset it just added transformation to execution plan
         Dataset<Row> dataset = sparkSession.read()
                 .option("header", true)
-                //.option("inferSchema",true) //takes one pss extra hence expensive operation to perform on big data
+                //.option("inferSchema",true) //takes one pass extra hence expensive operation to perform on big data
                 .csv("src/main/resources/exams/students.csv");
 
         /*
